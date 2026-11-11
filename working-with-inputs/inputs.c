@@ -1,9 +1,8 @@
 #include <stdio.h>
 
 // Accept string input from user and output to the console
-int print_user_input()
-{
-    char name[20];
+int printuserinput(){
+    char name[2];
 
     printf("What is your name?\n");
     scanf("%s", name);
@@ -14,12 +13,13 @@ int print_user_input()
 }
 
 // Accept integer input from user and output to the console
-int add_input()
+int addinput()
 {
     int a, b, sum;
 
     printf("Enter first number: ");
     scanf("%d", &a);
+    
     printf("Enter second number: ");
     scanf("%d", &b);
 
@@ -30,7 +30,7 @@ int add_input()
     return 0;
 }
 
-int area_of_circle()
+int areaofcircle()
 {
     float radius, PI, area;
     PI = 3.14;
@@ -46,7 +46,7 @@ int area_of_circle()
 
 }
 
-int area_of_triangle()
+int areaoftriangle()
 {
     int base, height, area;
 
@@ -65,10 +65,10 @@ int area_of_triangle()
 
 int main()
 {
-    // print_user_input();
-    // add_input();
-    // area_of_circle();
-    area_of_triangle();
+    // printuserinput();
+    // addinput();
+    // areaofcircle();
+    areaoftriangle();
 
     return 0;
 }

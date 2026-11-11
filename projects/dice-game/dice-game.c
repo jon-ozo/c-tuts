@@ -18,7 +18,7 @@
  *  -- if the number is below 6, the player loses and their deposit is deducted
  */
 
-int check_account_balance(int *balance)
+int checkaccountbalance(int *balance)
 {
     if (*balance < 10)
         return 0;
@@ -26,18 +26,18 @@ int check_account_balance(int *balance)
     return 1;
 }
 
-int roll_dice(int highest_number)
+int rolldice(int highestnumber)
 {
-    int random_number = rand() % highest_number + 1;
+    int randomnumber = rand() % highestnumber + 1;
 
-    return random_number;
+    return randomnumber;
 }
 
 int game_start(int *balance) 
 {
-    int HIGHEST_NUMBER = 6;
+    int HIGHESTNUMBER = 6;
     int stake;
-    int initial_balance = *balance;
+    int initialbalance = *balance;
     char response;
 
     printf("You have $%d in your account. How much would you like to stake? ", *balance);
@@ -60,9 +60,9 @@ int game_start(int *balance)
     
         if (response == 'y')
         {
-            int dice_roll = roll_dice(HIGHEST_NUMBER);
+            int dice_roll = rolldice(HIGHESTNUMBER);
     
-            if (dice_roll < HIGHEST_NUMBER)
+            if (dice_roll < HIGHESTNUMBER)
             {
                 *balance -= stake;
                 printf("You rolled a %d. You lose your stake of $%d. Your new balance is $%d.\n", dice_roll, stake, *balance);
@@ -76,7 +76,7 @@ int game_start(int *balance)
         }
         else if (response == 'n')
         {
-            if (initial_balance < *balance)
+            if (initialbalance < *balance)
             {
                 printf("Great game. Enjoy your winnings!\n");
                 break;
@@ -100,7 +100,7 @@ int game_start(int *balance)
     return 0;
 }
 
-int make_deposit(int *balance)
+int makedeposit(int *balance)
 {
     int deposit;
 
@@ -114,18 +114,18 @@ int make_deposit(int *balance)
     else
     {
         *balance += deposit;
-        game_start(balance);
+        gamestart(balance);
     }
 
     return 0;
 }
 
-int init_game(int *balance)
+int initgame(int *balance)
 {
     char response;
 
-    if (check_account_balance(balance)) {
-        game_start(balance);
+    if (checkaccountbalance(balance)) {
+        gamestart(balance);
     }
     else {
         printf("You do not have sufficient funds in your account. Please make a deposit to start playing the game.\n");
@@ -133,7 +133,7 @@ int init_game(int *balance)
         scanf(" %c", &response);
         
         if (response == 'y')
-            make_deposit(balance);
+            makedeposit(balance);
         
         else if (response == 'n')
             printf("You have chosen not to make a deposit. You cannot play the game without money in your account.\n");
@@ -150,7 +150,7 @@ int main()
     srand(getpid());
     int balance = 0;
     
-    init_game(&balance);
+    initgame(&balance);
 
     return 0;
 }

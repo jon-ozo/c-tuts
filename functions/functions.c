@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int random_number(int max)
+int randomnumber(int max)
 {
     int number;
     number = rand() % max + 1;
@@ -10,7 +10,7 @@ int random_number(int max)
     return number;
 }
 
-void goto_sleep(int time)
+void gotosleep(int time)
 {
     printf("Processing request...\n");
     sleep(time);
@@ -20,10 +20,10 @@ void goto_sleep(int time)
 int main()
 {
     srand(getpid());
-    int number = random_number(6);
+    int number = randomnumber(6);
     printf("%d\n", number);
 
-    // goto_sleep(5);
+    // gotosleep(5);
 
     return 0;
 }

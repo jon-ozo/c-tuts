@@ -7,8 +7,8 @@
 
 struct person
 {
-    char first_name[8];
-    char last_name[32];
+    char firstname[8];
+    char lastname[32];
     int age;
 };
 
@@ -23,8 +23,8 @@ int main()
 {
     struct person individual;
 
-    strncpy(individual.first_name, "John", 7);
-    strncpy(individual.last_name, "Ozoemena", 31);
+    strncpy(individual.firstname, "John", 7);
+    strncpy(individual.lastname, "Ozoemena", 31);
     individual.age = 36;
 
     // printf("%s %s is %d years old.\n", 
